@@ -7,7 +7,7 @@ namespace DataStorage.Data
 {
     class UserRepository
     {
-        List<User> _users = new List<User>();
+        static List<User> _users = new List<User>();
 
         public List<User> GetAll()
         {
@@ -18,6 +18,8 @@ namespace DataStorage.Data
         public void Add(User userToAdd)
         {
             // add a user to the "database"
+            userToAdd.Id = Guid.NewGuid();
+
             _users.Add(userToAdd);
         }
 
